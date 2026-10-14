@@ -135,9 +135,9 @@ remote-free history; push happens in T7.
 | # | Task | Status |
 |---|---|---|
 | T1 | Verify repo/release facts; remove scaffold; git init; this file | done |
-| T2 | Assets: icon PNGs from `seeker_icon.icns` (favicon 32, apple-touch 180, 512 for og), brows SVG recoloured to ACCENT; `tools/contrast.py` (verbatim logic) checking every text pair the CSS uses, both schemes | todo |
-| T3 | Screenshots: run `../Seeker/tools/screenshots.py` (dark, fixed size); pick dashboard + review + one more; PNG→WebP via Pillow into `assets/screens/`; write alt text | todo |
-| T4 | Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | todo |
+| T2 | (done) Assets: icon PNGs from `seeker_icon.icns` (favicon 32, apple-touch 180, 512 for og), brows SVG recoloured to ACCENT; `tools/contrast.py` (verbatim logic) checking every text pair the CSS uses, both schemes | todo |
+| T3 | (done) Screenshots: run `../Seeker/tools/screenshots.py` (dark, fixed size); pick dashboard + review + one more; PNG→WebP via Pillow into `assets/screens/`; write alt text | todo |
+| T4 | (built; visual review pending in T6) Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | todo |
 | T5 | og image 1200×630 (render `tools/og.html` with Playwright, save `assets/og.png`); meta tags; favicon links | todo |
 | T6 | Verify: Playwright screenshots 1440/390 × light/dark into `verification/`; no-horizontal-scroll check at 360; Lighthouse raw JSON+scores; link check incl. releases/latest; third-party request check; page weight total; contrast output | todo |
 | T7 | `gh repo create KristiyanDDimitrov/seeker-site --public`, push `main`; final report to user with raw evidence. Do NOT enable Pages | todo |
@@ -146,3 +146,23 @@ remote-free history; push happens in T7.
 
 - T1: `gh release view v0.1.0 -R KristiyanDDimitrov/Seeker` raw output
   was reported to the user in-session; key facts copied above.
+- T2: icon PNGs from `iconutil -c iconset` of seeker_icon.icns → assets/icon-32/180/256.png.
+  Wordmark: `tools/wordmark.py` outlines "Seeker" in Barlow Semi Condensed
+  SemiBold (Seeker's packaging/fonts) with brows placed by wordmark.py's
+  constants → assets/wordmark.svg, self-themed via embedded
+  prefers-color-scheme style (used as <img>). `python3 tools/contrast.py`:
+  34 pairs PASS, tokens == theme.py.
+- T3: `QT_SCALE_FACTOR=2 uv run python tools/screenshots.py --theme dark
+  --page dashboard --page review --page downloads` in ../Seeker (1280x820 →
+  2560x1640). `tools/screens.py` crops the 40 px in-window menu bar (an
+  offscreen-Qt artefact; macOS uses the system menu bar) → WebP 2560/1280.
+- Copy facts verified in ../Seeker: Spotify needs the user's own Spotify
+  app Client ID (README); BPM/key via librosa locally; source is MIT;
+  update check optional + off by default; sharing is opt-in (so never
+  claim "your library never leaves your Mac").
+- Chromium gotcha: `npx playwright@1.56.1 install chromium` downloads the
+  zip but its extractor hangs (Node 26). Fix used: unzip the zip from
+  $TMPDIR/playwright-download-*/ into ~/Library/Caches/ms-playwright/
+  chromium-1194/ and `touch INSTALLATION_COMPLETE`. Done; Chromium.app is
+  at chromium-1194/chrome-mac/Chromium.app. Needs dangerouslyDisableSandbox
+  for network.
