@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seeker: find what your DJ sets are missing</title>
+  <meta name="description" content="A Mac app for DJs. Seeker syncs your Spotify playlists, matches them against your library, downloads what's missing from SoulSeek, and tags it. Free and open source.">
+  <link rel="canonical" href="https://seekerapp.dev/">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#17191C" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#E8EAEC" media="(prefers-color-scheme: light)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Seeker">
+  <meta property="og:url" content="https://seekerapp.dev/">
+  <meta property="og:title" content="Seeker: find what your DJ sets are missing">
+  <meta property="og:description" content="Sync your Spotify playlists, match them against your library, and get the missing tracks from SoulSeek, correctly tagged. A free Mac app.">
+  <meta property="og:image" content="https://seekerapp.dev/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Seeker wordmark beside its dashboard, showing a playlist's tracks with their library status.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Seeker: find what your DJ sets are missing">
+  <meta name="twitter:description" content="Sync your Spotify playlists, match them against your library, and get the missing tracks from SoulSeek, correctly tagged. A free Mac app.">
+  <meta name="twitter:image" content="https://seekerapp.dev/assets/og.png">
+  <meta name="twitter:image:alt" content="The Seeker wordmark beside its dashboard, showing a playlist's tracks with their library status.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="preload" as="image" type="image/webp" href="assets/screens/dashboard-1280.webp"
+        imagesrcset="assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
+        imagesizes="(min-width: 1264px) 1200px, calc(100vw - 32px)">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="hero wrap">
+    <img class="hero-icon" src="assets/icon-256.png" width="256" height="256" alt="">
+    <h1><img class="wordmark" src="assets/wordmark.svg" width="2728" height="973" alt="Seeker"></h1>
+    <p class="pitch">Find what your DJ sets are missing, and get it into your library correctly tagged.</p>
+    <div class="actions">
+      <a class="button button-primary" href="https://github.com/KristiyanDDimitrov/Seeker/releases/latest">Download</a>
+      <a class="button" href="https://github.com/KristiyanDDimitrov/Seeker">View on GitHub</a>
+    </div>
+    <p class="latest">Latest: v0.1.0 · macOS 15 or later, Apple silicon</p>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <figure class="shot shot-hero">
+        <img srcset="assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
+             sizes="(min-width: 1264px) 1200px, calc(100vw - 32px)"
+             src="assets/screens/dashboard-1280.webp" width="1280" height="800" fetchpriority="high"
+             alt="Seeker's dashboard. The playlist Peak Time Techno is selected, with 2 of its 8 tracks missing. Each track has a status: in library, downloading at 66 percent, awaiting review, retrying, needs review, or not found. A banner offers to download the 2 missing tracks.">
+        <figcaption>
+          Pick a playlist and every track shows where it stands.
+          <ul class="lamps">
+            <li class="lamp-play">In your library</li>
+            <li class="lamp-cue">Downloading</li>
+            <li class="lamp-wait">Waiting for you to review</li>
+            <li class="lamp-off">Not found</li>
+          </ul>
+        </figcaption>
+      </figure>
+    </div>
+
+    <section class="section wrap row" aria-labelledby="what">
+      <h2 id="what">What it does</h2>
+      <ul class="list">
+        <li><strong>Syncs your Spotify playlists</strong>, and reads one again only when Spotify says it changed.</li>
+        <li><strong>Scans your library on every drive</strong> and matches each track to a file, or marks it for review or missing.</li>
+        <li><strong>Searches and downloads from SoulSeek</strong> through slskd, ranking files by format, bitrate and queue.</li>
+        <li><strong>Fixes tags and cover art</strong> from Spotify, and works out BPM and key on your Mac.</li>
+      </ul>
+    </section>
+
+    <section class="section wrap" aria-label="More screens">
+      <div class="gallery">
+        <figure class="shot">
+          <img srcset="assets/screens/review-1280.webp 1280w, assets/screens/review-2560.webp 2560w"
+               sizes="(min-width: 1264px) 588px, (min-width: 800px) calc(50vw - 44px), calc(100vw - 32px)"
+               src="assets/screens/review-1280.webp" width="1280" height="800" loading="lazy" decoding="async"
+               alt="The Review page in three sections: SoulSeek candidates to confirm, with match scores of 72.6 and 58.9; a downloaded upgrade from MP3 192 kbps to FLAC; and a local file match to confirm. Each row has Confirm and Reject buttons.">
+          <figcaption>Review: confirm the matches Seeker wasn't sure enough to accept alone.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img srcset="assets/screens/downloads-1280.webp 1280w, assets/screens/downloads-2560.webp 2560w"
+               sizes="(min-width: 1264px) 588px, (min-width: 800px) calc(50vw - 44px), calc(100vw - 32px)"
+               src="assets/screens/downloads-1280.webp" width="1280" height="800" loading="lazy" decoding="async"
+               alt="The Downloads page listing nine SoulSeek transfers across playlists: two downloading with progress meters, two queued, one retrying because the file is locked by the peer, one upgrade ready for review, one completed, and two failed with their reasons and a Retry button.">
+          <figcaption>Downloads: every transfer, with backups queued in case a peer drops out.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section wrap row" aria-labelledby="local">
+      <h2 id="local">Runs on your machine</h2>
+      <ul class="list">
+        <li><strong>No account.</strong> There is nothing to sign up for. Seeker talks to your own Spotify and SoulSeek logins.</li>
+        <li><strong>No telemetry.</strong> The only call home is an update check against GitHub, off unless you turn it on.</li>
+        <li><strong>Local analysis.</strong> Matching, BPM, key and audio fingerprints are computed on your Mac. Nothing is shared on SoulSeek until you pick a folder to share.</li>
+      </ul>
+    </section>
+
+    <section class="section wrap row" aria-labelledby="need">
+      <h2 id="need">What you need</h2>
+      <ul class="list">
+        <li><strong>A Mac with Apple silicon</strong> running macOS 15 or later.</li>
+        <li>
+          <strong>A <a href="https://www.spotify.com/">Spotify</a> account</strong>
+          <span class="note">plus a free <a href="https://developer.spotify.com/dashboard">Spotify app</a> of your own, for its Client ID. The setup wizard walks you through it.</span>
+        </li>
+        <li>
+          <strong><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> and slskd</strong>
+          <span class="note">Seeker sets up <a href="https://github.com/slskd/slskd">slskd</a>, the SoulSeek client it downloads through, in Docker for you.</span>
+        </li>
+        <li><strong>A <a href="https://www.slsknet.org/">SoulSeek</a> account.</strong> <span class="note">Free. You can add it later in Settings.</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <ul class="footer-links">
+        <li><a href="https://github.com/KristiyanDDimitrov/Seeker">Seeker on GitHub</a></li>
+        <li><a href="mailto:hello@seekerapp.dev">hello@seekerapp.dev</a></li>
+      </ul>
+      <p class="footer-note">Seeker downloads only what you ask it to. You are responsible for what you download and share.</p>
+    </div>
+  </footer>
+</body>
+</html>

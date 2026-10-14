@@ -1,0 +1,7 @@
+# GitHub Pages' default (Jekyll) deploy copies the HTML and CSS
+# unchanged. This only keeps the dev files below off the public site.
+exclude:
+  - HANDOFF.md
+  - README.md
+  - tools
+  - verification

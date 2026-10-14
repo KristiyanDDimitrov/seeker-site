@@ -1,0 +1,335 @@
+/* Seeker landing page.
+   Colour tokens are theme.py's DARK and LIGHT palettes, verbatim
+   (../Seeker/src/seeker/ui/theme.py). tools/contrast.py reads them from
+   this file and checks every text pair below against WCAG with the
+   app's own contrast function. Dark is the default, as in the app;
+   prefers-color-scheme: light swaps in C5's light palette. */
+
+:root {
+  color-scheme: dark light;
+
+  --bg-app: #17191C;
+  --bg-sidebar: #101113;
+  --bg-surface: #1E2125;
+  --bg-surface-2: #282C31;
+  --border: #353A40;
+  --border-strong: #4C535B;
+  --text: #E8EAEC;
+  --text-muted: #A0A7AE;
+  --accent: #9A7DFF;
+  --accent-hover: #AA91FF;
+  --accent-pressed: #8A6BF5;
+  --on-accent: #120E1F;
+  --success: #35D07F;
+  --cue: #FFB020;
+  --danger: #FF6363;
+
+  /* The app's "panel lettering" (Barlow Semi Condensed) is not a
+     system face; these are the installed condensed faces closest to
+     it. Avenir Next Condensed ships with every Mac. */
+  --font-display: "Avenir Next Condensed", "SF Pro Display Condensed",
+    "Arial Narrow", "Roboto Condensed", sans-serif-condensed, system-ui,
+    sans-serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* theme.py: RADIUS_CONTROL, RADIUS_CARD */
+  --radius-control: 4px;
+  --radius-card: 6px;
+  --gutter: 16px;
+  --measure: 62ch;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-app: #E8EAEC;
+    --bg-sidebar: #DDE0E3;
+    --bg-surface: #F9FAFA;
+    --bg-surface-2: #F0F2F3;
+    --border: #CBD0D5;
+    --border-strong: #9BA3AB;
+    --text: #15181B;
+    --text-muted: #4D555D;
+    --accent: #6440E6;
+    --accent-hover: #5734D6;
+    --accent-pressed: #4A2BBD;
+    --on-accent: #FFFFFF;
+    --success: #11804A;
+    --cue: #AD7400;
+    --danger: #C22B2B;
+  }
+}
+
+@media (min-width: 720px) {
+  :root { --gutter: 32px; }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-app);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-x: clip;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { color: var(--accent-hover); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(1200px + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  padding: 8px 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: var(--radius-control);
+  z-index: 1;
+}
+.skip:focus { top: 12px; color: var(--on-accent); }
+
+/* --- Hero ------------------------------------------------------------ */
+
+.hero {
+  padding-top: clamp(32px, 7vw, 88px);
+}
+
+.hero-icon {
+  width: clamp(64px, 9vw, 96px);
+  margin-left: -6px; /* the icon's own transparent margin */
+}
+
+.hero h1 {
+  margin: clamp(16px, 2.5vw, 28px) 0 0;
+  line-height: 1;
+}
+
+/* The wordmark is the page's one loud element: the app's own mark,
+   outlined, so it renders the same everywhere (tools/wordmark.py). */
+.wordmark {
+  width: clamp(240px, 52vw, 600px);
+}
+
+.pitch {
+  max-width: 34ch;
+  margin: clamp(20px, 3vw, 32px) 0 0;
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--text-muted);
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover {
+  color: var(--text);
+  background: var(--bg-surface-2);
+}
+
+/* Accent discipline (theme.py): exactly one primary button per screen. */
+.button-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.button-primary:hover {
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
+  color: var(--on-accent);
+}
+.button-primary:active {
+  border-color: var(--accent-pressed);
+  background: var(--accent-pressed);
+}
+
+.latest {
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* --- Screenshots ----------------------------------------------------- */
+
+.shot { margin: 0; }
+
+.shot img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--bg-surface);
+}
+
+.shot figcaption {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  max-width: var(--measure);
+}
+
+.shot-hero { margin-top: clamp(40px, 6vw, 72px); }
+
+/* The status lamps, in the app's own vocabulary: SUCCESS is play,
+   CUE is cue (solid while working, a ring while waiting on you),
+   DANGER is not found. Lamps need only 3:1 (non-text). */
+.lamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+.lamps li { display: flex; align-items: center; gap: 8px; }
+.lamps li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+.lamp-play::before { background: var(--success); }
+.lamp-cue::before { background: var(--cue); }
+.lamp-wait::before { box-shadow: inset 0 0 0 2px var(--cue); }
+.lamp-off::before { background: var(--danger); }
+
+.gallery {
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 800px) {
+  .gallery { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
+/* --- Sections -------------------------------------------------------- */
+
+.section {
+  padding-block: clamp(48px, 8vw, 96px) 0;
+}
+
+.section h2 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* Label | content on wide screens: the title is the row's label. */
+@media (min-width: 800px) {
+  .row {
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) 3fr;
+    gap: 32px;
+    align-items: baseline;
+  }
+  .row h2 { margin: 0; }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--measure);
+}
+
+.list li {
+  padding-block: 14px;
+  border-top: 1px solid var(--border);
+}
+.list li:last-child { border-bottom: 1px solid var(--border); }
+
+.list strong { font-weight: 600; }
+
+.list .note {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* --- Footer ---------------------------------------------------------- */
+
+.footer {
+  margin-top: clamp(64px, 10vw, 120px);
+  padding-block: 32px 40px;
+  background: var(--bg-sidebar);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-note {
+  max-width: var(--measure);
+  margin: 16px 0 0;
+}
+
+/* --- 404 ------------------------------------------------------------- */
+
+.missing {
+  min-height: 70vh;
+  padding-top: clamp(48px, 10vw, 120px);
+}
+
+.missing .wordmark { width: clamp(160px, 30vw, 280px); }
+
+.missing h1 {
+  margin: 40px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.missing p { max-width: var(--measure); }
