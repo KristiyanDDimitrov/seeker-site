@@ -7,7 +7,8 @@ Internal references (href, src, srcset, imagesrcset, content="/...")
 are fetched from the local server. External http(s) links are fetched
 for real, following redirects, and the final URL is printed (so
 releases/latest shows which tag it lands on). mailto: addresses get an
-MX lookup of their domain via `dig`. URLs on seekerapp.dev itself
+MX lookup of their domain via `dig` at 1.1.1.1 (a local resolver can
+hold a stale negative answer). URLs on seekerapp.dev itself
 (canonical, og:url, og:image) can only resolve once the user points DNS
 at Pages, so they are checked as their local equivalent and listed
 separately. Exits non-zero if anything else fails.
@@ -69,7 +70,7 @@ def main() -> int:
                 continue
             if ref.startswith("mailto:"):
                 domain = ref.split("@", 1)[1]
-                mx = subprocess.run(["dig", "+short", "MX", domain],
+                mx = subprocess.run(["dig", "+short", "MX", domain, "@1.1.1.1"],
                                     capture_output=True, text=True).stdout.split()
                 ok = bool(mx)
                 print(f"{'OK  ' if ok else 'FAIL'} {file_name}: {ref} -> MX {' '.join(mx) or '(none)'}")

@@ -22,7 +22,7 @@ OK   index.html: https://developer.spotify.com/dashboard [200]
 OK   index.html: https://www.docker.com/products/docker-desktop/ [200]
 OK   index.html: https://github.com/slskd/slskd [200]
 OK   index.html: https://www.slsknet.org/ [200]
-FAIL index.html: mailto:hello@seekerapp.dev -> MX (none)
+OK   index.html: mailto:hello@seekerapp.dev -> MX 10 fwd1.porkbun.com. 20 fwd2.porkbun.com.
 OK   404.html: / [200]
 
-1 FAILURE(S)
+OK

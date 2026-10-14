@@ -176,11 +176,15 @@ remote-free history; push happens in T7.
 - T6 results (2026-10-14): Lighthouse 12.8.2 mobile + desktop = 100/100/100/100
   (reports in verification/). Layout: no overflow at 1440/390/360, both
   schemes, both pages; 0 off-origin requests. Link check: all OK,
-  releases/latest → releases/tag/v0.1.0. **FAIL: seekerapp.dev has no MX
-  record** (Porkbun NS, parked A records), so hello@ bounces until the
-  user sets up mail. Page weight: 87.2 KiB desktop / 138.0 KiB 3x phone,
+  releases/latest → releases/tag/v0.1.0. MX was missing at first;
+  the user then enabled Porkbun forwarding (see below). Page weight: 87.2 KiB desktop / 138.0 KiB 3x phone,
   8 requests. Re-run: tools/shoot.py, linkcheck.py, weight.py, contrast.py.
 - T7: repo https://github.com/KristiyanDDimitrov/seeker-site (public,
   main) created and pushed. Pages API → 404 (Pages not enabled, as
   required). All tasks done; open items are the user's: enable Pages,
-  point DNS, set up MX/mail for hello@seekerapp.dev.
+  point DNS.
+- 2026-10-14: MX now `10 fwd1.porkbun.com` / `20 fwd2.porkbun.com` (Porkbun
+  email forwarding). SMTP probe (RCPT TO, no DATA): both forwarders
+  accept hello@seekerapp.dev with 250 2.1.5 and reject a random address
+  with 554, so the forward rule exists. No SPF/TXT record (only matters
+  for sending as @seekerapp.dev). linkcheck.py now asks 1.1.1.1.
