@@ -137,8 +137,8 @@ remote-free history; push happens in T7.
 | T1 | Verify repo/release facts; remove scaffold; git init; this file | done |
 | T2 | (done) Assets: icon PNGs from `seeker_icon.icns` (favicon 32, apple-touch 180, 512 for og), brows SVG recoloured to ACCENT; `tools/contrast.py` (verbatim logic) checking every text pair the CSS uses, both schemes | todo |
 | T3 | (done) Screenshots: run `../Seeker/tools/screenshots.py` (dark, fixed size); pick dashboard + review + one more; PNG→WebP via Pillow into `assets/screens/`; write alt text | todo |
-| T4 | (built; visual review pending in T6) Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | todo |
-| T5 | og image 1200×630 (render `tools/og.html` with Playwright, save `assets/og.png`); meta tags; favicon links | todo |
+| T4 | (done) Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | todo |
+| T5 | (done) og image 1200×630 (render `tools/og.html` with Playwright, save `assets/og.png`); meta tags; favicon links | todo |
 | T6 | Verify: Playwright screenshots 1440/390 × light/dark into `verification/`; no-horizontal-scroll check at 360; Lighthouse raw JSON+scores; link check incl. releases/latest; third-party request check; page weight total; contrast output | todo |
 | T7 | `gh repo create KristiyanDDimitrov/seeker-site --public`, push `main`; final report to user with raw evidence. Do NOT enable Pages | todo |
 
@@ -166,3 +166,10 @@ remote-free history; push happens in T7.
   chromium-1194/ and `touch INSTALLATION_COMPLETE`. Done; Chromium.app is
   at chromium-1194/chrome-mac/Chromium.app. Needs dangerouslyDisableSandbox
   for network.
+- T4/T5: screenshots link to their 2560 px originals (illegible at phone
+  width otherwise). OG card = tools/og.html rendered by tools/og.py; it
+  frames the dashboard's Track + Status columns so the lamps show.
+  `body { overflow-x: clip }` was removed on purpose: it would hide real
+  overflow from the 360 px check.
+- Local verification server: `python3 -m http.server 8765 --bind 127.0.0.1`
+  from the repo root (needs dangerouslyDisableSandbox for Playwright).

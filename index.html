@@ -18,12 +18,12 @@
   <meta property="og:image" content="https://seekerapp.dev/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="The Seeker wordmark beside its dashboard, showing a playlist's tracks with their library status.">
+  <meta property="og:image:alt" content="The Seeker wordmark beside a playlist's tracks in the app, each with its status: in library, downloading, awaiting review, or not found.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Seeker: find what your DJ sets are missing">
   <meta name="twitter:description" content="Sync your Spotify playlists, match them against your library, and get the missing tracks from SoulSeek, correctly tagged. A free Mac app.">
   <meta name="twitter:image" content="https://seekerapp.dev/assets/og.png">
-  <meta name="twitter:image:alt" content="The Seeker wordmark beside its dashboard, showing a playlist's tracks with their library status.">
+  <meta name="twitter:image:alt" content="The Seeker wordmark beside a playlist's tracks in the app, each with its status: in library, downloading, awaiting review, or not found.">
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
   <link rel="apple-touch-icon" href="assets/icon-180.png">
@@ -49,10 +49,10 @@
   <main id="main">
     <div class="wrap">
       <figure class="shot shot-hero">
-        <img srcset="assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
+        <a class="shot-link" href="assets/screens/dashboard-2560.webp"><img srcset="assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
              sizes="(min-width: 1264px) 1200px, calc(100vw - 32px)"
              src="assets/screens/dashboard-1280.webp" width="1280" height="800" fetchpriority="high"
-             alt="Seeker's dashboard. The playlist Peak Time Techno is selected, with 2 of its 8 tracks missing. Each track has a status: in library, downloading at 66 percent, awaiting review, retrying, needs review, or not found. A banner offers to download the 2 missing tracks.">
+             alt="Seeker's dashboard. The playlist Peak Time Techno is selected, with 2 of its 8 tracks missing. Each track has a status: in library, downloading at 66 percent, awaiting review, retrying, needs review, or not found. A banner offers to download the 2 missing tracks."></a>
         <figcaption>
           Pick a playlist and every track shows where it stands.
           <ul class="lamps">
@@ -78,17 +78,17 @@
     <section class="section wrap" aria-label="More screens">
       <div class="gallery">
         <figure class="shot">
-          <img srcset="assets/screens/review-1280.webp 1280w, assets/screens/review-2560.webp 2560w"
+          <a class="shot-link" href="assets/screens/review-2560.webp"><img srcset="assets/screens/review-1280.webp 1280w, assets/screens/review-2560.webp 2560w"
                sizes="(min-width: 1264px) 588px, (min-width: 800px) calc(50vw - 44px), calc(100vw - 32px)"
                src="assets/screens/review-1280.webp" width="1280" height="800" loading="lazy" decoding="async"
-               alt="The Review page in three sections: SoulSeek candidates to confirm, with match scores of 72.6 and 58.9; a downloaded upgrade from MP3 192 kbps to FLAC; and a local file match to confirm. Each row has Confirm and Reject buttons.">
+               alt="The Review page in three sections: SoulSeek candidates to confirm, with match scores of 72.6 and 58.9; a downloaded upgrade from MP3 192 kbps to FLAC; and a local file match to confirm. Each row has Confirm and Reject buttons."></a>
           <figcaption>Review: confirm the matches Seeker wasn't sure enough to accept alone.</figcaption>
         </figure>
         <figure class="shot">
-          <img srcset="assets/screens/downloads-1280.webp 1280w, assets/screens/downloads-2560.webp 2560w"
+          <a class="shot-link" href="assets/screens/downloads-2560.webp"><img srcset="assets/screens/downloads-1280.webp 1280w, assets/screens/downloads-2560.webp 2560w"
                sizes="(min-width: 1264px) 588px, (min-width: 800px) calc(50vw - 44px), calc(100vw - 32px)"
                src="assets/screens/downloads-1280.webp" width="1280" height="800" loading="lazy" decoding="async"
-               alt="The Downloads page listing nine SoulSeek transfers across playlists: two downloading with progress meters, two queued, one retrying because the file is locked by the peer, one upgrade ready for review, one completed, and two failed with their reasons and a Retry button.">
+               alt="The Downloads page listing nine SoulSeek transfers across playlists: two downloading with progress meters, two queued, one retrying because the file is locked by the peer, one upgrade ready for review, one completed, and two failed with their reasons and a Retry button."></a>
           <figcaption>Downloads: every transfer, with backups queued in case a peer drops out.</figcaption>
         </figure>
       </div>

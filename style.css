@@ -80,7 +80,6 @@ body {
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.55;
-  overflow-x: clip;
 }
 
 img { display: block; max-width: 100%; height: auto; }
@@ -333,3 +332,8 @@ a:hover { color: var(--accent-hover); }
 }
 
 .missing p { max-width: var(--measure); }
+
+/* Each screenshot opens at full size: at phone width the app's text is
+   too small to read in place. */
+.shot-link { display: block; border-radius: var(--radius-card); }
+.shot-link:hover img { border-color: var(--text-muted); }
