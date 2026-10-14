@@ -27,8 +27,8 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
   <link rel="apple-touch-icon" href="assets/icon-180.png">
-  <link rel="preload" as="image" type="image/webp" href="assets/screens/dashboard-1280.webp"
-        imagesrcset="assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high" href="assets/screens/dashboard-1280.webp"
+        imagesrcset="assets/screens/dashboard-640.webp 640w, assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
         imagesizes="(min-width: 1264px) 1200px, calc(100vw - 32px)">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -36,7 +36,7 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="hero wrap">
-    <img class="hero-icon" src="assets/icon-256.png" width="256" height="256" alt="">
+    <img class="hero-icon" src="assets/icon-192.webp" width="192" height="192" alt="">
     <h1><img class="wordmark" src="assets/wordmark.svg" width="2728" height="973" alt="Seeker"></h1>
     <p class="pitch">Find what your DJ sets are missing, and get it into your library correctly tagged.</p>
     <div class="actions">
@@ -49,7 +49,7 @@
   <main id="main">
     <div class="wrap">
       <figure class="shot shot-hero">
-        <a class="shot-link" href="assets/screens/dashboard-2560.webp"><img srcset="assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
+        <a class="shot-link" href="assets/screens/dashboard-2560.webp"><img srcset="assets/screens/dashboard-640.webp 640w, assets/screens/dashboard-1280.webp 1280w, assets/screens/dashboard-2560.webp 2560w"
              sizes="(min-width: 1264px) 1200px, calc(100vw - 32px)"
              src="assets/screens/dashboard-1280.webp" width="1280" height="800" fetchpriority="high"
              alt="Seeker's dashboard. The playlist Peak Time Techno is selected, with 2 of its 8 tracks missing. Each track has a status: in library, downloading at 66 percent, awaiting review, retrying, needs review, or not found. A banner offers to download the 2 missing tracks."></a>
@@ -78,14 +78,14 @@
     <section class="section wrap" aria-label="More screens">
       <div class="gallery">
         <figure class="shot">
-          <a class="shot-link" href="assets/screens/review-2560.webp"><img srcset="assets/screens/review-1280.webp 1280w, assets/screens/review-2560.webp 2560w"
+          <a class="shot-link" href="assets/screens/review-2560.webp"><img srcset="assets/screens/review-640.webp 640w, assets/screens/review-1280.webp 1280w, assets/screens/review-2560.webp 2560w"
                sizes="(min-width: 1264px) 588px, (min-width: 800px) calc(50vw - 44px), calc(100vw - 32px)"
                src="assets/screens/review-1280.webp" width="1280" height="800" loading="lazy" decoding="async"
                alt="The Review page in three sections: SoulSeek candidates to confirm, with match scores of 72.6 and 58.9; a downloaded upgrade from MP3 192 kbps to FLAC; and a local file match to confirm. Each row has Confirm and Reject buttons."></a>
           <figcaption>Review: confirm the matches Seeker wasn't sure enough to accept alone.</figcaption>
         </figure>
         <figure class="shot">
-          <a class="shot-link" href="assets/screens/downloads-2560.webp"><img srcset="assets/screens/downloads-1280.webp 1280w, assets/screens/downloads-2560.webp 2560w"
+          <a class="shot-link" href="assets/screens/downloads-2560.webp"><img srcset="assets/screens/downloads-640.webp 640w, assets/screens/downloads-1280.webp 1280w, assets/screens/downloads-2560.webp 2560w"
                sizes="(min-width: 1264px) 588px, (min-width: 800px) calc(50vw - 44px), calc(100vw - 32px)"
                src="assets/screens/downloads-1280.webp" width="1280" height="800" loading="lazy" decoding="async"
                alt="The Downloads page listing nine SoulSeek transfers across playlists: two downloading with progress meters, two queued, one retrying because the file is locked by the peer, one upgrade ready for review, one completed, and two failed with their reasons and a Retry button."></a>

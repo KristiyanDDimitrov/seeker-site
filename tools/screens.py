@@ -9,7 +9,7 @@
 
 Qt's offscreen platform draws the menu bar inside the window; on macOS
 it lives in the system menu bar, so that strip is cropped off. Nothing
-else is touched. Each screen is written at 2560 and 1280 px wide for
+else is touched. Each screen is written at 2560, 1280 and 640 px wide for
 `srcset`.
 """
 
@@ -20,7 +20,7 @@ from PIL import Image
 SOURCE = Path(__file__).resolve().parents[2] / "Seeker/tools/.screens"
 OUT = Path(__file__).resolve().parents[1] / "assets/screens"
 SCREENS = ("dashboard", "review", "downloads")
-WIDTHS = (2560, 1280)
+WIDTHS = (2560, 1280, 640)
 QUALITY = 82  # untuned: visually checked at 1x and 2x, not measured
 
 

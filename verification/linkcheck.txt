@@ -1,0 +1,28 @@
+PEND index.html: https://seekerapp.dev/ -> local http://127.0.0.1:8765/ 200 (live once DNS + Pages are on)
+PEND index.html: https://seekerapp.dev/assets/og.png -> local http://127.0.0.1:8765/assets/og.png 200 (live once DNS + Pages are on)
+OK   index.html: assets/icon-32.png [200]
+OK   index.html: assets/icon-180.png [200]
+OK   index.html: assets/screens/dashboard-1280.webp [200]
+OK   index.html: assets/screens/dashboard-640.webp [200]
+OK   index.html: assets/screens/dashboard-2560.webp [200]
+OK   index.html: style.css [200]
+OK   index.html: #main (in-page anchor)
+OK   index.html: assets/icon-192.webp [200]
+OK   index.html: assets/wordmark.svg [200]
+OK   index.html: https://github.com/KristiyanDDimitrov/Seeker/releases/latest [200] -> https://github.com/KristiyanDDimitrov/Seeker/releases/tag/v0.1.0
+OK   index.html: https://github.com/KristiyanDDimitrov/Seeker [200]
+OK   index.html: assets/screens/review-2560.webp [200]
+OK   index.html: assets/screens/review-640.webp [200]
+OK   index.html: assets/screens/review-1280.webp [200]
+OK   index.html: assets/screens/downloads-2560.webp [200]
+OK   index.html: assets/screens/downloads-640.webp [200]
+OK   index.html: assets/screens/downloads-1280.webp [200]
+OK   index.html: https://www.spotify.com/ [200] -> https://open.spotify.com/
+OK   index.html: https://developer.spotify.com/dashboard [200]
+OK   index.html: https://www.docker.com/products/docker-desktop/ [200]
+OK   index.html: https://github.com/slskd/slskd [200]
+OK   index.html: https://www.slsknet.org/ [200]
+FAIL index.html: mailto:hello@seekerapp.dev -> MX (none)
+OK   404.html: / [200]
+
+1 FAILURE(S)

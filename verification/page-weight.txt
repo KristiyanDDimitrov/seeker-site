@@ -1,0 +1,22 @@
+== 1440 desktop (DPR 1)
+    36,026 B  /assets/screens/dashboard-1280.webp
+    15,762 B  /assets/screens/downloads-640.webp
+    12,972 B  /assets/screens/review-640.webp
+     8,939 B  /
+     7,653 B  /style.css
+     3,691 B  /assets/wordmark.svg
+     2,830 B  /assets/icon-192.webp
+     1,382 B  /assets/icon-32.png
+  first load: 8 requests, 89,255 B (87.2 KiB)
+  after full scroll: 8 requests, 89,255 B (87.2 KiB)
+== 390 phone (DPR 3)
+    44,878 B  /assets/screens/downloads-1280.webp
+    36,026 B  /assets/screens/dashboard-1280.webp
+    35,960 B  /assets/screens/review-1280.webp
+     8,939 B  /
+     7,653 B  /style.css
+     3,691 B  /assets/wordmark.svg
+     2,830 B  /assets/icon-192.webp
+     1,382 B  /assets/icon-32.png
+  first load: 8 requests, 141,359 B (138.0 KiB)
+  after full scroll: 8 requests, 141,359 B (138.0 KiB)

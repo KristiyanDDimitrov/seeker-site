@@ -139,7 +139,7 @@ remote-free history; push happens in T7.
 | T3 | (done) Screenshots: run `../Seeker/tools/screenshots.py` (dark, fixed size); pick dashboard + review + one more; PNG→WebP via Pillow into `assets/screens/`; write alt text | todo |
 | T4 | (done) Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | todo |
 | T5 | (done) og image 1200×630 (render `tools/og.html` with Playwright, save `assets/og.png`); meta tags; favicon links | todo |
-| T6 | Verify: Playwright screenshots 1440/390 × light/dark into `verification/`; no-horizontal-scroll check at 360; Lighthouse raw JSON+scores; link check incl. releases/latest; third-party request check; page weight total; contrast output | todo |
+| T6 | (done) Verify: Playwright screenshots 1440/390 × light/dark into `verification/`; no-horizontal-scroll check at 360; Lighthouse raw JSON+scores; link check incl. releases/latest; third-party request check; page weight total; contrast output | todo |
 | T7 | `gh repo create KristiyanDDimitrov/seeker-site --public`, push `main`; final report to user with raw evidence. Do NOT enable Pages | todo |
 
 ## Notes (append as you go)
@@ -173,3 +173,10 @@ remote-free history; push happens in T7.
   overflow from the 360 px check.
 - Local verification server: `python3 -m http.server 8765 --bind 127.0.0.1`
   from the repo root (needs dangerouslyDisableSandbox for Playwright).
+- T6 results (2026-10-14): Lighthouse 12.8.2 mobile + desktop = 100/100/100/100
+  (reports in verification/). Layout: no overflow at 1440/390/360, both
+  schemes, both pages; 0 off-origin requests. Link check: all OK,
+  releases/latest → releases/tag/v0.1.0. **FAIL: seekerapp.dev has no MX
+  record** (Porkbun NS, parked A records), so hello@ bounces until the
+  user sets up mail. Page weight: 87.2 KiB desktop / 138.0 KiB 3x phone,
+  8 requests. Re-run: tools/shoot.py, linkcheck.py, weight.py, contrast.py.
