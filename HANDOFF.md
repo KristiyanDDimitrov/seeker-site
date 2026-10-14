@@ -140,7 +140,7 @@ remote-free history; push happens in T7.
 | T4 | (done) Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | todo |
 | T5 | (done) og image 1200×630 (render `tools/og.html` with Playwright, save `assets/og.png`); meta tags; favicon links | todo |
 | T6 | (done) Verify: Playwright screenshots 1440/390 × light/dark into `verification/`; no-horizontal-scroll check at 360; Lighthouse raw JSON+scores; link check incl. releases/latest; third-party request check; page weight total; contrast output | todo |
-| T7 | `gh repo create KristiyanDDimitrov/seeker-site --public`, push `main`; final report to user with raw evidence. Do NOT enable Pages | todo |
+| T7 | (done) `gh repo create KristiyanDDimitrov/seeker-site --public`, push `main`; final report to user with raw evidence. Do NOT enable Pages | todo |
 
 ## Notes (append as you go)
 
@@ -180,3 +180,7 @@ remote-free history; push happens in T7.
   record** (Porkbun NS, parked A records), so hello@ bounces until the
   user sets up mail. Page weight: 87.2 KiB desktop / 138.0 KiB 3x phone,
   8 requests. Re-run: tools/shoot.py, linkcheck.py, weight.py, contrast.py.
+- T7: repo https://github.com/KristiyanDDimitrov/seeker-site (public,
+  main) created and pushed. Pages API → 404 (Pages not enabled, as
+  required). All tasks done; open items are the user's: enable Pages,
+  point DNS, set up MX/mail for hello@seekerapp.dev.
