@@ -1,6 +1,8 @@
 <!doctype html>
 <!-- The 1200x630 share card. Rendered to assets/og.png by tools/og.py;
-     not part of the site. Dark tokens from theme.py. -->
+     not part of the site. Dark tokens from theme.py; the lit brows,
+     their haze and the screenshot's screen light are the hero's own
+     (style.css), so the card reads as the landing page. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -11,27 +13,47 @@
     background: #17191C; color: #E8EAEC;
     font-family: system-ui, -apple-system, sans-serif;
   }
-  .text { position: absolute; left: 72px; top: 0; bottom: 0; width: 470px;
+  /* The hero's haze, behind the wordmark. */
+  body::before {
+    content: ""; position: absolute; left: -180px; top: -260px;
+    width: 1000px; height: 640px;
+    background: radial-gradient(closest-side, rgb(154 125 255 / 0.18), rgb(154 125 255 / 0.05) 55%, transparent);
+  }
+  .text { position: absolute; left: 72px; top: 0; bottom: 0; width: 460px;
           display: flex; flex-direction: column; justify-content: center; }
-  .icon { width: 88px; margin-left: -5px; }
-  .wordmark { width: 400px; margin-top: 24px; }
-  p { margin: 28px 0 0; font-size: 28px; line-height: 1.3; text-wrap: balance; }
-  .meta { margin-top: 20px; font-size: 20px; color: #A0A7AE; }
-  /* A window onto the dashboard's playlist and status columns: the
-     lamps are the product, the sidebar repeats the wordmark. */
-  .frame { position: absolute; left: 600px; top: 125px; right: 0; height: 380px;
-           overflow: hidden; border: 1px solid #353A40; border-right: 0;
-           border-radius: 6px 0 0 6px; }
-  .shot { position: absolute; width: 1240px; left: -470px; top: -166px; }
+  .wordmark { display: block; width: 420px; height: auto; overflow: visible; }
+  .wordmark-type { fill: #E8EAEC; }
+  .brows { fill: none; stroke: #9A7DFF; stroke-width: 76.6; }
+  .brows-glow { stroke-opacity: 0.9; }
+  p { margin: 30px 0 0; font-size: 28px; line-height: 1.3; text-wrap: balance; }
+  /* The icon beside where to get it, as the hero's release row has it. */
+  .release { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
+  .release img { width: 60px; height: 60px; }
+  .release div { font-size: 20px; line-height: 1.35; color: #A0A7AE; }
+  .release b { display: block; font-weight: 600; color: #E8EAEC; }
+  /* The dashboard's track panel, whole: filter chips and the
+     playlist's rows, cropped from the 1280x800 screenshot so it ends on
+     the last row's line, then framed and lit as on the page. Crop in
+     logical px, from tools/screen-geometry.json: x 479-1263,
+     y 171-550; scale 0.75. */
+  .shot { position: absolute; left: 556px; top: 173px;
+          width: 588px; height: 284px;
+          overflow: hidden; border: 1px solid #353A40; border-radius: 6px;
+          background: #1E2125;
+          box-shadow: 0 0 0 1px rgb(255 255 255 / 0.03), 0 30px 80px -30px rgb(154 125 255 / 0.45); }
+  .shot img { position: absolute; display: block; width: 960.0px;
+              left: -359.2px; top: -128.2px; }
 </style>
 </head>
 <body>
   <div class="text">
-    <img class="icon" src="../assets/icon-192.webp" alt="">
-    <img class="wordmark" src="../assets/wordmark.svg" alt="Seeker">
+    <svg class="wordmark" viewBox="28 -963 2728 973" role="img" aria-label="Seeker"><defs><filter id="lit" x="-60%" y="-120%" width="220%" height="340%"><feGaussianBlur stdDeviation="34"/></filter></defs><g class="wordmark-type"><path transform="translate(0 0) scale(1 -1)" d="M38 183V209Q38 214 41.5 217.5Q45 221 50 221H140Q145 221 148.5 217.5Q152 214 152 209V189Q152 146 182.0 119.0Q212 92 263 92Q310 92 335.0 116.0Q360 140 360 179Q360 206 346.0 225.5Q332 245 306.5 261.5Q281 278 228 306Q167 338 130.0 363.0Q93 388 67.5 427.0Q42 466 42 522Q42 608 99.5 658.0Q157 708 251 708Q316 708 366.0 683.5Q416 659 443.0 614.0Q470 569 470 511V490Q470 485 466.5 481.5Q463 478 458 478H368Q363 478 359.5 481.5Q356 485 356 490V509Q356 552 327.0 580.0Q298 608 249 608Q206 608 181.0 585.5Q156 563 156 523Q156 496 169.0 477.0Q182 458 208.5 441.0Q235 424 289 397Q361 356 395.0 333.0Q429 310 452.5 273.5Q476 237 476 184Q476 96 417.0 44.0Q358 -8 259 -8Q193 -8 143.0 15.5Q93 39 65.5 82.5Q38 126 38 183Z"/><path transform="translate(513 0) scale(1 -1)" d="M446 265 445 222Q445 210 433 210H165Q160 210 160 205Q162 177 164 164Q169 131 192.0 111.0Q215 91 250 91Q280 92 300.5 106.0Q321 120 332 145Q337 156 347 153L429 136Q441 132 437 121Q417 59 368.5 25.5Q320 -8 250 -8Q167 -8 117.0 32.0Q67 72 52 143Q47 170 45.5 200.0Q44 230 44 280Q44 332 49 359Q59 432 111.0 475.5Q163 519 243 519Q330 519 383.5 470.0Q437 421 443 341Q446 308 446 265ZM163 347Q160 325 160 297Q160 292 165 292H324Q329 292 329 297Q327 331 325 346Q321 379 299.0 399.0Q277 419 244 419Q211 419 189.5 399.5Q168 380 163 347Z"/><path transform="translate(997 0) scale(1 -1)" d="M446 265 445 222Q445 210 433 210H165Q160 210 160 205Q162 177 164 164Q169 131 192.0 111.0Q215 91 250 91Q280 92 300.5 106.0Q321 120 332 145Q337 156 347 153L429 136Q441 132 437 121Q417 59 368.5 25.5Q320 -8 250 -8Q167 -8 117.0 32.0Q67 72 52 143Q47 170 45.5 200.0Q44 230 44 280Q44 332 49 359Q59 432 111.0 475.5Q163 519 243 519Q330 519 383.5 470.0Q437 421 443 341Q446 308 446 265ZM163 347Q160 325 160 297Q160 292 165 292H324Q329 292 329 297Q327 331 325 346Q321 379 299.0 399.0Q277 419 244 419Q211 419 189.5 399.5Q168 380 163 347Z"/><path transform="translate(1481 0) scale(1 -1)" d="M54 12V688Q54 693 57.5 696.5Q61 700 66 700H158Q163 700 166.5 696.5Q170 693 170 688V330Q170 327 172.0 326.5Q174 326 176 328L311 504Q317 511 326 511H427Q437 511 437 504Q437 501 434 496L318 341Q316 338 318 334L452 14Q453 12 453 8Q453 0 443 0H347Q336 0 333 10L242 249Q241 252 239.5 252.0Q238 252 236 250L172 169Q170 165 170 163V12Q170 7 166.5 3.5Q163 0 158 0H66Q61 0 57.5 3.5Q54 7 54 12Z"/><path transform="translate(1932 0) scale(1 -1)" d="M446 265 445 222Q445 210 433 210H165Q160 210 160 205Q162 177 164 164Q169 131 192.0 111.0Q215 91 250 91Q280 92 300.5 106.0Q321 120 332 145Q337 156 347 153L429 136Q441 132 437 121Q417 59 368.5 25.5Q320 -8 250 -8Q167 -8 117.0 32.0Q67 72 52 143Q47 170 45.5 200.0Q44 230 44 280Q44 332 49 359Q59 432 111.0 475.5Q163 519 243 519Q330 519 383.5 470.0Q437 421 443 341Q446 308 446 265ZM163 347Q160 325 160 297Q160 292 165 292H324Q329 292 329 297Q327 331 325 346Q321 379 299.0 399.0Q277 419 244 419Q211 419 189.5 399.5Q168 380 163 347Z"/><path transform="translate(2416 0) scale(1 -1)" d="M324 505Q332 501 330 490L313 399Q312 387 299 392Q286 397 269 397Q262 397 248 395Q214 392 191.5 364.0Q169 336 169 294V12Q169 7 165.5 3.5Q162 0 157 0H65Q60 0 56.5 3.5Q53 7 53 12V499Q53 504 56.5 507.5Q60 511 65 511H157Q162 511 165.5 507.5Q169 504 169 499V456Q169 452 170.5 451.5Q172 451 174 454Q210 517 275 517Q303 517 324 505Z"/></g><g class="brows brows-glow" filter="url(#lit)"><path d="M601.3 -914.3 L877.0 -710.6"/><path d="M1123.0 -710.6 L1398.7 -914.3"/></g><g class="brows"><path d="M601.3 -914.3 L877.0 -710.6"/><path d="M1123.0 -710.6 L1398.7 -914.3"/></g></svg>
     <p>Find what your DJ sets are missing, and get it into your library correctly tagged.</p>
-    <div class="meta">Free for macOS · seekerapp.dev</div>
+    <div class="release">
+      <img src="../assets/icon-192.webp" alt="">
+      <div><b>Free for macOS</b>seekerapp.dev</div>
+    </div>
   </div>
-  <div class="frame"><img class="shot" src="../assets/screens/dashboard-2560.webp" alt=""></div>
+  <div class="shot"><img src="../assets/screens/dashboard-2560.webp" alt=""></div>
 </body>
 </html>

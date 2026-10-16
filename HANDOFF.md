@@ -168,7 +168,8 @@ remote-free history; push happens in T7.
   for network.
 - T4/T5: screenshots link to their 2560 px originals (illegible at phone
   width otherwise). OG card = tools/og.html rendered by tools/og.py; it
-  frames the dashboard's Track + Status columns so the lamps show.
+  frames the dashboard's whole track panel (chips + 8 rows; crop
+  from tools/screen-geometry.json) beside the lit wordmark, as the hero.
   `body { overflow-x: clip }` was removed on purpose: it would hide real
   overflow from the 360 px check.
 - Local verification server: `python3 -m http.server 8765 --bind 127.0.0.1`
