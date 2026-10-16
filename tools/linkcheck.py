@@ -58,12 +58,15 @@ def fetch(url: str) -> tuple[int, str]:
 
 def main() -> int:
     failures = 0
-    seen: set[str] = set()
+    seen: set = set()
     for file_name, served_at in PAGES.items():
         parser = Refs()
         parser.feed((ROOT / file_name).read_text())
         for ref in parser.refs:
             if ref.startswith("#"):
+                if (file_name, ref) in seen:
+                    continue
+                seen.add((file_name, ref))
                 ok = f'id="{ref[1:]}"' in (ROOT / file_name).read_text()
                 print(f"{'OK  ' if ok else 'FAIL'} {file_name}: {ref} (in-page anchor)")
                 failures += not ok

@@ -135,12 +135,12 @@ remote-free history; push happens in T7.
 | # | Task | Status |
 |---|---|---|
 | T1 | Verify repo/release facts; remove scaffold; git init; this file | done |
-| T2 | (done) Assets: icon PNGs from `seeker_icon.icns` (favicon 32, apple-touch 180, 512 for og), brows SVG recoloured to ACCENT; `tools/contrast.py` (verbatim logic) checking every text pair the CSS uses, both schemes | todo |
-| T3 | (done) Screenshots: run `../Seeker/tools/screenshots.py` (dark, fixed size); pick dashboard + review + one more; PNG→WebP via Pillow into `assets/screens/`; write alt text | todo |
-| T4 | (done) Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | todo |
-| T5 | (done) og image 1200×630 (render `tools/og.html` with Playwright, save `assets/og.png`); meta tags; favicon links | todo |
-| T6 | (done) Verify: Playwright screenshots 1440/390 × light/dark into `verification/`; no-horizontal-scroll check at 360; Lighthouse raw JSON+scores; link check incl. releases/latest; third-party request check; page weight total; contrast output | todo |
-| T7 | (done) `gh repo create KristiyanDDimitrov/seeker-site --public`, push `main`; final report to user with raw evidence. Do NOT enable Pages | todo |
+| T2 | Assets: icon PNGs from `seeker_icon.icns` (favicon 32, apple-touch 180, 512 for og), brows SVG recoloured to ACCENT; `tools/contrast.py` (verbatim logic) checking every text pair the CSS uses, both schemes | done |
+| T3 | Screenshots: run `../Seeker/tools/screenshots.py` (dark, fixed size); pick dashboard + review + one more; PNG→WebP via Pillow into `assets/screens/`; write alt text | done |
+| T4 | Build `index.html`, `404.html`, `style.css`, `_config.yml`, `README.md` per design plan | done |
+| T5 | og image 1200×630 (render `tools/og.html` with Playwright, save `assets/og.png`); meta tags; favicon links | done |
+| T6 | Verify: Playwright screenshots 1440/390 × light/dark into `verification/`; no-horizontal-scroll check at 360; Lighthouse raw JSON+scores; link check incl. releases/latest; third-party request check; page weight total; contrast output | done |
+| T7 | `gh repo create KristiyanDDimitrov/seeker-site --public`, push `main`; final report to user with raw evidence. Do NOT enable Pages | done |
 
 ## Notes (append as you go)
 
@@ -188,3 +188,94 @@ remote-free history; push happens in T7.
   accept hello@seekerapp.dev with 250 2.1.5 and reject a random address
   with 554, so the forward rule exists. No SPF/TXT record (only matters
   for sending as @seekerapp.dev). linkcheck.py now asks 1.1.1.1.
+
+## Round 2 (2026-10-14 to 2026-10-16): the interactive page
+
+The user asked for the page to "look even cooler without changing it too
+much", saw a mockup before each step, and approved the build. Each
+decision below is theirs (do not re-ask):
+
+- Mobile bug: the wordmark was an `<img>` of an SVG that picked its own
+  colour scheme, which disagreed with the page on the user's phone (dark
+  page, light-scheme letters). The wordmark is now inline SVG coloured by
+  the page's tokens, on index.html and 404.html.
+- "Lit booth": the brows glow (dark theme only, via `--glow`) and power
+  on once at load; lamps and the screenshot glow faintly.
+- The app icon sits next to the Download button (the thing you get).
+- The set strip: the Dashboard's selected playlist as a deck's waveform
+  overview, one segment per track with its status lamp. Picking a track
+  (its waveform, or its row in the screenshot's track list) shows a
+  readout, moves a playhead and outlines the row in the screenshot.
+  Until one is picked, "attract mode" steps through the set (hover
+  pauses, a pick stops it; reduced motion rests on track 3), with a cue
+  line above the strip saying what to do.
+- Demo data: playlists Neurofunk, Jungle, Peak Time Techno, Progressive
+  House; Neurofunk's eight tracks are real ones the user chose (see
+  `tools/app_screens.py`). One invented track remains (Mara Okafor -
+  Glasshouse, in Jungle). The Support page's author email
+  (kristiyanddimitrov@proton.me) stays in its screenshot: user's call.
+- The screenshot is explorable: every sidebar page and Settings' four
+  tabs, in both themes, all stacked and painted so switching never
+  flashes; picking a waveform from another page jumps back to the
+  Dashboard. The app's theme toggle flips the whole page. Every other
+  control in the picture scrolls to Download and pops it. Clicking the
+  picture never opens the image (the full-size links are gone, by
+  request). Phones get a row of page names (and Settings' tabs) above
+  the picture instead of the tiny sidebar.
+- A Support button (with Revolut and PayPal logos, Simple Icons CC0,
+  inlined) scrolls to a Support section built from the app's own Support
+  copy; donation links are Seeker's `help_text.SUPPORT_LINKS`.
+- JavaScript: about 40 lines, inline, only for scroll-then-pop and the
+  jump back to the Dashboard (the brief allows JS where an item needs
+  it). Everything else is radios, a checkbox and `:has()`; without JS the
+  links still jump and `:target` pops once.
+
+How it is built (see each script's docstring):
+
+1. `uv run --no-project --with pillow python tools/app_screens.py`
+   renders every page in both themes with ../Seeker's own screenshot
+   tool, patched at run time (never in the Seeker repo) for the demo
+   data and a recorder of every control's and table row's rectangle.
+   Writes `assets/screens/*.webp` (84 files) and
+   `tools/screen-geometry.json`. Each patch asserts its target text, so
+   a change in Seeker's tool stops it.
+2. `python3 tools/build_page.py` regenerates the marked parts of
+   index.html, 404.html and style.css (`build_page.py: NAME` markers):
+   wordmark, preload, the figure (strip + screenshot + click targets),
+   and the per-track/per-page/attract CSS. Everything outside the
+   markers is hand-written. It is idempotent.
+3. Re-run the checks (server: `python3 -m http.server 8765 --bind
+   127.0.0.1` from the repo root): tools/shoot.py, contrast.py,
+   linkcheck.py, weight.py, og.py, and Lighthouse:
+   `CHROME_PATH=<Chromium> npx -y lighthouse@12.8.2 http://127.0.0.1:8765/
+   --chrome-flags=--headless=new --output=json --output=html
+   --output-path=verification/lighthouse-mobile` (add `--preset=desktop`
+   and `-desktop` for desktop).
+
+| # | Task | Status |
+|---|---|---|
+| R1 | Fix the wordmark colour bug (inline SVG) | done |
+| R2 | Lit booth, icon by Download, set strip, attract mode | done |
+| R3 | New demo data; all 14 pages × 2 themes rendered with geometry | done |
+| R4 | Explorable screenshot, theme toggle, download prompts, Support | done |
+| R5 | tools/app_screens.py + tools/build_page.py; old tools/screens.py removed | done |
+| R6 | Verify (results below), commit, push | done |
+
+Round 2 results (2026-10-16, raw files in `verification/`):
+- Layout: no horizontal scroll at 1440/390/360, both schemes, both pages;
+  0 off-origin requests (layout-checks.json).
+- Lighthouse 12.8.2: desktop 100/100/100/100; mobile 99/100/100/100
+  (mobile LCP 2.0 s under simulated throttling; CLS 0, TBT 0).
+- Contrast: all pairs pass in both schemes; the toggle's palette copies
+  equal the originals (contrast.txt).
+- Link check: all OK, incl. revolut.me, paypal.me (-> paypal.com/paypalme)
+  and GitHub issues (linkcheck.txt).
+- Weight: first load 626.5 KiB (dark) / 641.0 KiB (light), 19 requests,
+  was 87 KiB: every page's screenshot preloads so switching never
+  flashes; the other theme's load on the first flip (page-weight.txt).
+- Behaviour tested in Playwright against the real site: page switching
+  and Settings tabs, theme flip both ways (right layer on top, loaded),
+  attract mode timing/pause/stop/reduced motion, row = waveform picks,
+  Tag button prompts instead of picking, scroll-then-pop (repeatable, no
+  URL hash), jump back to the Dashboard (incl. same track, arrow keys),
+  Support scroll, and the no-JS fallbacks.

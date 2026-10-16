@@ -1,11 +1,13 @@
+PASS flipped to dark: 15 tokens equal the original palette
+PASS flipped to light: 15 tokens equal the original palette
 
 == dark ==
   15 tokens checked against theme.py DARK
   PASS 14.60:1 (>= 4.5) text #E8EAEC on bg-app #17191C  [body text, headings]
-  PASS  7.24:1 (>= 4.5) text-muted #A0A7AE on bg-app #17191C  ['Latest' line, captions, notes, lamp legend]
-  PASS  5.66:1 (>= 4.5) accent #9A7DFF on bg-app #17191C  [links in sections]
+  PASS  7.24:1 (>= 4.5) text-muted #A0A7AE on bg-app #17191C  ['Latest' line, captions, notes, lamp legend, cue line, readout status, page row]
+  PASS  5.66:1 (>= 4.5) accent #9A7DFF on bg-app #17191C  [links in sections, readout track number]
   PASS  6.88:1 (>= 4.5) accent-hover #AA91FF on bg-app #17191C  [hovered links]
-  PASS 11.65:1 (>= 4.5) text #E8EAEC on bg-surface-2 #282C31  [secondary button, hovered]
+  PASS 11.65:1 (>= 4.5) text #E8EAEC on bg-surface-2 #282C31  [secondary button, hovered; picked page in the page row]
   PASS  6.09:1 (>= 4.5) on-accent #120E1F on accent #9A7DFF  [primary button]
   PASS  7.40:1 (>= 4.5) on-accent #120E1F on accent-hover #AA91FF  [primary button, hovered]
   PASS  4.96:1 (>= 4.5) on-accent #120E1F on accent-pressed #8A6BF5  [primary button, pressed]
@@ -22,10 +24,10 @@
 == light ==
   15 tokens checked against theme.py LIGHT
   PASS 14.78:1 (>= 4.5) text #15181B on bg-app #E8EAEC  [body text, headings]
-  PASS  6.28:1 (>= 4.5) text-muted #4D555D on bg-app #E8EAEC  ['Latest' line, captions, notes, lamp legend]
-  PASS  5.09:1 (>= 4.5) accent #6440E6 on bg-app #E8EAEC  [links in sections]
+  PASS  6.28:1 (>= 4.5) text-muted #4D555D on bg-app #E8EAEC  ['Latest' line, captions, notes, lamp legend, cue line, readout status, page row]
+  PASS  5.09:1 (>= 4.5) accent #6440E6 on bg-app #E8EAEC  [links in sections, readout track number]
   PASS  6.07:1 (>= 4.5) accent-hover #5734D6 on bg-app #E8EAEC  [hovered links]
-  PASS 15.87:1 (>= 4.5) text #15181B on bg-surface-2 #F0F2F3  [secondary button, hovered]
+  PASS 15.87:1 (>= 4.5) text #15181B on bg-surface-2 #F0F2F3  [secondary button, hovered; picked page in the page row]
   PASS  6.14:1 (>= 4.5) on-accent #FFFFFF on accent #6440E6  [primary button]
   PASS  7.32:1 (>= 4.5) on-accent #FFFFFF on accent-hover #5734D6  [primary button, hovered]
   PASS  8.85:1 (>= 4.5) on-accent #FFFFFF on accent-pressed #4A2BBD  [primary button, pressed]

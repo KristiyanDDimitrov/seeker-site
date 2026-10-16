@@ -1,22 +1,88 @@
-== 1440 desktop (DPR 1)
-    36,026 B  /assets/screens/dashboard-1280.webp
-    15,762 B  /assets/screens/downloads-640.webp
-    12,972 B  /assets/screens/review-640.webp
-     8,939 B  /
-     7,653 B  /style.css
-     3,691 B  /assets/wordmark.svg
+== 1440 desktop (DPR 1), dark
+    78,486 B  /assets/screens/help-1280.webp
+    59,691 B  /
+    41,236 B  /assets/screens/support-1280.webp
+    40,036 B  /assets/screens/duplicates-1280.webp
+    39,276 B  /assets/screens/downloads-1280.webp
+    37,738 B  /assets/screens/library-1280.webp
+    36,520 B  /assets/screens/settings-connections-1280.webp
+    36,292 B  /assets/screens/settings-library-1280.webp
+    36,097 B  /style.css
+    34,494 B  /assets/screens/review-1280.webp
+    33,290 B  /assets/screens/settings-general-1280.webp
+    32,748 B  /assets/screens/dashboard-light-1280.webp
+    32,038 B  /assets/screens/dashboard-1280.webp
+    28,740 B  /assets/screens/history-1280.webp
+    26,766 B  /assets/screens/search-1280.webp
+    23,422 B  /assets/screens/sharing-1280.webp
+    20,454 B  /assets/screens/settings-matching-1280.webp
      2,830 B  /assets/icon-192.webp
      1,382 B  /assets/icon-32.png
-  first load: 8 requests, 89,255 B (87.2 KiB)
-  after full scroll: 8 requests, 89,255 B (87.2 KiB)
-== 390 phone (DPR 3)
-    44,878 B  /assets/screens/downloads-1280.webp
-    36,026 B  /assets/screens/dashboard-1280.webp
-    35,960 B  /assets/screens/review-1280.webp
-     8,939 B  /
-     7,653 B  /style.css
-     3,691 B  /assets/wordmark.svg
+  first load: 19 requests, 641,536 B (626.5 KiB)
+  after full scroll: 19 requests, 641,536 B (626.5 KiB)
+== 1440 desktop (DPR 1), light
+    78,592 B  /assets/screens/help-light-1280.webp
+    59,691 B  /
+    41,670 B  /assets/screens/duplicates-light-1280.webp
+    41,462 B  /assets/screens/support-light-1280.webp
+    40,658 B  /assets/screens/downloads-light-1280.webp
+    39,446 B  /assets/screens/library-light-1280.webp
+    38,770 B  /assets/screens/settings-connections-light-1280.webp
+    38,236 B  /assets/screens/settings-library-light-1280.webp
+    36,097 B  /style.css
+    35,316 B  /assets/screens/settings-general-light-1280.webp
+    35,238 B  /assets/screens/review-light-1280.webp
+    32,748 B  /assets/screens/dashboard-light-1280.webp
+    32,038 B  /assets/screens/dashboard-1280.webp
+    29,364 B  /assets/screens/history-light-1280.webp
+    27,674 B  /assets/screens/search-light-1280.webp
+    24,330 B  /assets/screens/sharing-light-1280.webp
+    20,826 B  /assets/screens/settings-matching-light-1280.webp
      2,830 B  /assets/icon-192.webp
      1,382 B  /assets/icon-32.png
-  first load: 8 requests, 141,359 B (138.0 KiB)
-  after full scroll: 8 requests, 141,359 B (138.0 KiB)
+  first load: 19 requests, 656,368 B (641.0 KiB)
+  after full scroll: 19 requests, 656,368 B (641.0 KiB)
+== 390 phone (DPR 3), dark
+    78,486 B  /assets/screens/help-1280.webp
+    59,691 B  /
+    41,236 B  /assets/screens/support-1280.webp
+    40,036 B  /assets/screens/duplicates-1280.webp
+    39,276 B  /assets/screens/downloads-1280.webp
+    37,738 B  /assets/screens/library-1280.webp
+    36,520 B  /assets/screens/settings-connections-1280.webp
+    36,292 B  /assets/screens/settings-library-1280.webp
+    36,097 B  /style.css
+    34,494 B  /assets/screens/review-1280.webp
+    33,290 B  /assets/screens/settings-general-1280.webp
+    32,748 B  /assets/screens/dashboard-light-1280.webp
+    32,038 B  /assets/screens/dashboard-1280.webp
+    28,740 B  /assets/screens/history-1280.webp
+    26,766 B  /assets/screens/search-1280.webp
+    23,422 B  /assets/screens/sharing-1280.webp
+    20,454 B  /assets/screens/settings-matching-1280.webp
+     2,830 B  /assets/icon-192.webp
+     1,382 B  /assets/icon-32.png
+  first load: 19 requests, 641,536 B (626.5 KiB)
+  after full scroll: 19 requests, 641,536 B (626.5 KiB)
+== 390 phone (DPR 3), light
+    78,592 B  /assets/screens/help-light-1280.webp
+    59,691 B  /
+    41,670 B  /assets/screens/duplicates-light-1280.webp
+    41,462 B  /assets/screens/support-light-1280.webp
+    40,658 B  /assets/screens/downloads-light-1280.webp
+    39,446 B  /assets/screens/library-light-1280.webp
+    38,770 B  /assets/screens/settings-connections-light-1280.webp
+    38,236 B  /assets/screens/settings-library-light-1280.webp
+    36,097 B  /style.css
+    35,316 B  /assets/screens/settings-general-light-1280.webp
+    35,238 B  /assets/screens/review-light-1280.webp
+    32,748 B  /assets/screens/dashboard-light-1280.webp
+    32,038 B  /assets/screens/dashboard-1280.webp
+    29,364 B  /assets/screens/history-light-1280.webp
+    27,674 B  /assets/screens/search-light-1280.webp
+    24,330 B  /assets/screens/sharing-light-1280.webp
+    20,826 B  /assets/screens/settings-matching-light-1280.webp
+     2,830 B  /assets/icon-192.webp
+     1,382 B  /assets/icon-32.png
+  first load: 19 requests, 656,368 B (641.0 KiB)
+  after full scroll: 19 requests, 656,368 B (641.0 KiB)

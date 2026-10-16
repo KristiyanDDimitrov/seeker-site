@@ -5,8 +5,10 @@ own contrast logic.
 
 Reads the tokens from style.css (the dark `:root` block and the
 `prefers-color-scheme: light` block), confirms each equals theme.py's
-DARK/LIGHT value, then checks every pair below in both schemes. Exits
-non-zero on any failure.
+DARK/LIGHT value, then checks every pair below in both schemes. The
+palettes repeat for the theme toggle (`:root:has(#theme:checked)`, one
+copy per direction); each copy must equal its original. Exits non-zero
+on any failure.
 
 `_relative_luminance` and `contrast_ratio` are copied verbatim from
 ../Seeker/src/seeker/ui/theme.py (importing it would pull in PySide6).
@@ -54,10 +56,10 @@ NON_TEXT = 3.0
 # (foreground, background, floor, where on the page)
 PAIRS = [
     ("text", "bg-app", TEXT_AA, "body text, headings"),
-    ("text-muted", "bg-app", TEXT_AA, "'Latest' line, captions, notes, lamp legend"),
-    ("accent", "bg-app", TEXT_AA, "links in sections"),
+    ("text-muted", "bg-app", TEXT_AA, "'Latest' line, captions, notes, lamp legend, cue line, readout status, page row"),
+    ("accent", "bg-app", TEXT_AA, "links in sections, readout track number"),
     ("accent-hover", "bg-app", TEXT_AA, "hovered links"),
-    ("text", "bg-surface-2", TEXT_AA, "secondary button, hovered"),
+    ("text", "bg-surface-2", TEXT_AA, "secondary button, hovered; picked page in the page row"),
     ("on-accent", "accent", TEXT_AA, "primary button"),
     ("on-accent", "accent-hover", TEXT_AA, "primary button, hovered"),
     ("on-accent", "accent-pressed", TEXT_AA, "primary button, pressed"),
@@ -102,8 +104,23 @@ def theme_palette(name: str) -> dict[str, str]:
     return {m[1]: m[2].upper() for m in re.finditer(r'(\w+)="(#[0-9A-Fa-f]{6})"', block[1])}
 
 
+def flipped_copies() -> list[tuple[str, dict[str, str], dict[str, str]]]:
+    """The toggle's copies: (which, copy, original)."""
+    css = (ROOT / "style.css").read_text()
+    dark, light = css_palettes()
+    to_dark = re.search(r"prefers-color-scheme: light\)\s*\{.*?:root:has\(#theme:checked\) \{(.*?)\}", css, re.S)
+    to_light = re.search(r"not all and \(prefers-color-scheme: light\)\s*\{\s*:root:has\(#theme:checked\) \{(.*?)\}", css, re.S)
+    assert to_dark and to_light, "style.css toggle blocks not found"
+    return [("flipped to dark", tokens(to_dark[1]), dark), ("flipped to light", tokens(to_light[1]), light)]
+
+
 def main() -> int:
     failures = 0
+    for which, copy, original in flipped_copies():
+        same = copy == original
+        failures += not same
+        print(f"{'PASS' if same else 'FAIL'} {which}: {len(copy)} tokens "
+              f"{'equal' if same else 'differ from'} the original palette")
     for scheme, css in zip(("dark", "light"), css_palettes()):
         theme = theme_palette(scheme.upper())
         print(f"\n== {scheme} ==")
