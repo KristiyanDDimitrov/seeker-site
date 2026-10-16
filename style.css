@@ -236,6 +236,7 @@ a:hover { color: var(--accent-hover); }
 }
 .release-icon {
   grid-area: icon;
+  align-self: start;
   width: 56px;
   margin: -4px -4px -4px 0;
 }
@@ -294,11 +295,22 @@ a:hover { color: var(--accent-hover); }
 .button-support .logos { display: inline-flex; gap: 6px; color: var(--text-muted); }
 .button-support:hover .logos { color: var(--text); }
 
-.latest {
-  grid-area: latest;
+.release-meta { grid-area: latest; }
+.latest, .download-note {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.9375rem;
+}
+/* After Download is clicked: the file downloads in place (the link is
+   the latest release's Seeker.dmg), and the app isn't notarized, so the
+   first launch needs one step in System Settings. */
+.download-note {
+  max-width: 52ch;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-surface);
+  color: var(--text);
 }
 
 /* A control in the screenshot that only works in the real app brings

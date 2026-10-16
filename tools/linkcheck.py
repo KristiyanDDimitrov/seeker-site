@@ -46,10 +46,11 @@ class Refs(HTMLParser):
 
 
 def fetch(url: str) -> tuple[int, str]:
-    """GET with redirects followed, via curl (it uses the system trust
-    store; python.org's Python ships without CA certificates)."""
+    """GET of the first byte (a release's .dmg is 112 MB) with redirects
+    followed, via curl (it uses the system trust store; python.org's
+    Python ships without CA certificates). 206 is a success."""
     out = subprocess.run(
-        ["curl", "-sS", "-L", "-o", "/dev/null", "--max-time", "30", "-A", UA,
+        ["curl", "-sS", "-L", "-r", "0-0", "-o", "/dev/null", "--max-time", "30", "-A", UA,
          "-w", "%{http_code} %{url_effective}", url],
         capture_output=True, text=True,
     ).stdout.split()
@@ -94,9 +95,11 @@ def main() -> int:
                 continue
             seen.add(url)
             status, final = fetch(url)
-            ok = status == 200
+            ok = status in (200, 206)
             failures += not ok
-            hop = f" -> {final}" if final != url else ""
+            # Without the query: a release asset lands on a signed,
+            # short-lived URL whose tokens needn't be in the report.
+            hop = f" -> {final.split('?')[0]}" if final != url else ""
             print(f"{'OK  ' if ok else 'FAIL'} {file_name}: {ref} [{status}]{hop}")
     print("\nOK" if not failures else f"\n{failures} FAILURE(S)")
     return 1 if failures else 0

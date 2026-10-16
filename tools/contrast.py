@@ -60,6 +60,7 @@ PAIRS = [
     ("accent", "bg-app", TEXT_AA, "links in sections, readout track number"),
     ("accent-hover", "bg-app", TEXT_AA, "hovered links"),
     ("text", "bg-surface-2", TEXT_AA, "secondary button, hovered; picked page in the page row"),
+    ("text", "bg-surface", TEXT_AA, "first-launch note after Download"),
     ("on-accent", "accent", TEXT_AA, "primary button"),
     ("on-accent", "accent-hover", TEXT_AA, "primary button, hovered"),
     ("on-accent", "accent-pressed", TEXT_AA, "primary button, pressed"),

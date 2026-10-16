@@ -279,3 +279,21 @@ Round 2 results (2026-10-16, raw files in `verification/`):
   Tag button prompts instead of picking, scroll-then-pop (repeatable, no
   URL hash), jump back to the Dashboard (incl. same track, arrow keys),
   Support scroll, and the no-JS fallbacks.
+
+### Direct download (2026-10-16, user's call)
+
+Download (index and 404) is
+`https://github.com/KristiyanDDimitrov/Seeker/releases/latest/download/Seeker.dmg`:
+GitHub redirects it to the latest release's asset, served as an
+attachment, so the file downloads and the visitor stays on the page.
+Verified with curl (302 -> v0.1.0's asset, `content-disposition:
+attachment; filename=Seeker.dmg`, 111,788,167 B) and in Playwright (a
+download event, URL unchanged). After the click, a note (index only,
+via the script) gives the first-launch step for the un-notarized app;
+"v0.1.0" in the Latest line links to the release (notes, checksum).
+linkcheck.py now fetches one byte (`-r 0-0`, 206 = OK) and prints final
+URLs without their query (release assets land on signed URLs).
+
+On each new release: keep the asset named exactly `Seeker.dmg` (the
+link depends on it), and update by hand the Latest line's version and
+tag link, and the note's size ("112 MB") in index.html.

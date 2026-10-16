@@ -11,9 +11,10 @@ OK   index.html: assets/screens/dashboard-light-2560.webp [200]
 OK   index.html: style.css [200]
 OK   index.html: #main (in-page anchor)
 OK   index.html: assets/icon-192.webp [200]
-OK   index.html: https://github.com/KristiyanDDimitrov/Seeker/releases/latest [200] -> https://github.com/KristiyanDDimitrov/Seeker/releases/tag/v0.1.0
-OK   index.html: https://github.com/KristiyanDDimitrov/Seeker [200]
+OK   index.html: https://github.com/KristiyanDDimitrov/Seeker/releases/latest/download/Seeker.dmg [206] -> https://release-assets.githubusercontent.com/github-production-release-asset/1345999398/3a16e392-d5f0-4eb8-86f6-84207b2bcfbf
+OK   index.html: https://github.com/KristiyanDDimitrov/Seeker [206]
 OK   index.html: #support (in-page anchor)
+OK   index.html: https://github.com/KristiyanDDimitrov/Seeker/releases/tag/v0.1.0 [206]
 OK   index.html: assets/screens/library-640.webp [200]
 OK   index.html: assets/screens/library-1280.webp [200]
 OK   index.html: assets/screens/library-2560.webp [200]
@@ -95,12 +96,12 @@ OK   index.html: assets/screens/settings-matching-light-2560.webp [200]
 OK   index.html: #download (in-page anchor)
 OK   index.html: https://www.spotify.com/ [200] -> https://open.spotify.com/
 OK   index.html: https://developer.spotify.com/dashboard [200]
-OK   index.html: https://www.docker.com/products/docker-desktop/ [200]
-OK   index.html: https://github.com/slskd/slskd [200]
-OK   index.html: https://www.slsknet.org/ [200]
+OK   index.html: https://www.docker.com/products/docker-desktop/ [206]
+OK   index.html: https://github.com/slskd/slskd [206]
+OK   index.html: https://www.slsknet.org/ [206]
 OK   index.html: https://revolut.me/kddimitrov [200]
 OK   index.html: https://paypal.me/KristiyanDimitrov98 [200] -> https://www.paypal.com/paypalme/KristiyanDimitrov98
-OK   index.html: https://github.com/KristiyanDDimitrov/Seeker/issues [200]
+OK   index.html: https://github.com/KristiyanDDimitrov/Seeker/issues [206]
 OK   index.html: mailto:hello@seekerapp.dev -> MX 10 fwd1.porkbun.com. 20 fwd2.porkbun.com.
 OK   404.html: / [200]
 
